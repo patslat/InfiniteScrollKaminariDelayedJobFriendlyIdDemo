@@ -5,6 +5,6 @@ class Dog < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   def send_welcome_email
-    DogMailer.welcome_email(self)
+    DogMailer.delay.welcome_email(self)
   end
 end
